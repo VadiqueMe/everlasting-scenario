@@ -177,9 +177,9 @@ init python:
             
             
             if self.ypos > renpy.config.screen_height or\
-               (self.wind< 0 and self.xpos < 0) or (self.wind > 0 and self.xpos > renpy.config.screen_width):
-                
-                return None
+            (self.wind< 0 and self.xpos < 0) or (self.wind > 0 and self.xpos > renpy.config.screen_width):
+                    
+                    return None
             
             
             
@@ -187,27 +187,75 @@ init python:
             return int(self.xpos), int(self.ypos), st, self.image
 
 init:
-    image snow = Snow("images/1080/anim/snow.png")
-    image heavy_snow = Snow("images/1080/anim/snow.png", max_particles=500)
+    image snow = Snow("images/anim/snow.png")
+    image heavy_snow = Snow("images/anim/snow.png", max_particles=500)
 
     $ flash = Fade(1, 0, 1, color="#fff")
+    $ flash2 = Fade(2, 2, 2, color="#fff")
     $ flash_red = Fade(1, 0, 1, color="#e11")
     $ fade3 = Fade(1.5, 0, 1.5)
     $ fade2 = Fade(1, 0, 1)
+    $ hell_dissolve = Dissolve(50)
     $ dissolve2 = Dissolve(2)
+    $ dissolve_fast = Dissolve(0.5)
+    $ dissolve_long = Dissolve(100)
     $ dspr = Dissolve(.2)
 
     $ backdrop = "prologue"
 
 init python:
-    if  persistent.seenEnding1 == None:
-        persistent.seenEnding1 = False
-    if  persistent.seenEnding2 == None:
-        persistent.seenEnding2 = False
-    if  persistent.seenEnding3 == None:
-        persistent.seenEnding3 = False
-    if  persistent.seenEnding4 == None:
-        persistent.seenEnding4 = False
+
+    import itertools
+    locations = ["bg ext_aidpost", "bg ext_beach", "bg ext_boathouse", "bg ext_clubs", "bg ext_dining_hall_away", "bg ext_library", "bg ext_house_of_mt", "bg ext_playground", "bg ext_road", "bg ext_square", "bg int_dining_hall"]
+    variations = ["night", "sunset", "day"]
+    all_loc = ["%s_%s" % (location, variation) for (location, variation) in itertools.product(locations, variations)]
+
+
+
+
+
+    if persistent.endings == None:
+        persistent.endings = {
+                "main_good":False,
+                "main_bad":False,
+                "dv_good":False,
+                "dv_bad":False,
+                "sl_good":False,
+                "sl_bad":False,
+                "un_good":False,
+                "un_bad":False,
+                "us_good":False,
+                "us_bad":False,
+                "mi":False,
+                "uv_city":False,
+                "uv_unknown_fucken_shit":False
+                }
+
+
+
+    if persistent.CardsDemo == None:
+        persistent.CardsDemo = False
+
+    if persistent.CardsFail == None:
+        persistent.CardsFail = False
+
+    if persistent.CardsWon1 == None:
+        persistent.CardsWon1 = False
+
+    if persistent.CardsWon2 == None:
+        persistent.CardsWon2 = False
+
+    if persistent.CardsWon3 == None:
+        persistent.CardsWon3 = False
+
+    if persistent.hentai == None:
+        persistent.hentai = False
+
+    if persistent.foobar == None:
+        persistent.foobar = False
+
+
+
 init:
 
     python:
