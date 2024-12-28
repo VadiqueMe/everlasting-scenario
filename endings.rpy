@@ -1,5 +1,4 @@
 label postscriptum:
-
     window show
     "У каждой истории есть начало и конец."
     "У каждой истории есть своя канва, синопсис, содержание, ключевые моменты, прологи и эпилоги."
@@ -7,34 +6,52 @@ label postscriptum:
     "У каждой истории есть начало и конец."
     "Почти у каждой…"
     window hide
-
     $ renpy.pause(5)
-
     return
-
 init:
+    transform ending_transform_spanish:
+        xalign 0.5
+        ypos 1.3
+        linear 87.0 ypos -2.12
+
+    transform ending_transform_italian:
+        xalign 0.5
+        ypos 1.3
+        linear 87.0 ypos -2.0
+
+    transform ending_transform_chinese:
+        xalign 0.5
+        ypos 1.3
+        linear 87.0 ypos -2.95
+
+    transform ending_transform_french:
+        xalign 0.5
+        ypos 1.3
+        linear 87.0 ypos -2.76
 
     transform ending_transform:
         xalign 0.5
         ypos 1.3
         linear 87.0 ypos -1.55
 
-    $ credits_text = translation["credits"][_preferences.language]
-
+    $ credits_text = translation_new["credits"]
 
 label un_good_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_square_night_ending behind credits:
         zoom 1.2
         anchor (0.1,0.0)
@@ -89,56 +106,55 @@ label un_good_ending:
     $ renpy.pause(4, hard=True)
     scene cg epilogue_un_good_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label un_bad_ending:
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["410"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     $ renpy.pause(8, hard=True)
     scene un_ending_bad
     with dissolve2
-    $ renpy.pause(79, hard=True)
-
+    if _preferences.language == "french":
+        $ renpy.pause(76, hard=True)
+    else:
+        $ renpy.pause(79, hard=True)
     scene bg black
     with dissolve2
-
     stop music fadeout 5
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label main_good_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     $ renpy.pause(2, hard=True)
-
     scene anim intro_1
     with dissolve
     $ renpy.pause(0.5, hard=True)
@@ -184,7 +200,6 @@ label main_good_ending:
     scene anim intro_16
     with dissolve
     $ renpy.pause(0.5, hard=True)
-
     scene op_back
     with dissolve2
     $ renpy.pause(1, hard=True)
@@ -197,7 +212,6 @@ label main_good_ending:
     show cg d3_sl_library_ending
     with dissolve
     $ renpy.pause(0.5, hard=True)
-
     scene op_back
     show op_sl
     with dissolve2
@@ -211,7 +225,6 @@ label main_good_ending:
     show cg epilogue_un_ending
     with dissolve
     $ renpy.pause(0.5, hard=True)
-
     scene op_back
     show op_sl
     show op_un
@@ -229,7 +242,6 @@ label main_good_ending:
     show cg d3_ussr_catched_ending
     with dissolve
     $ renpy.pause(0.5, hard=True)
-
     scene op_back
     show op_sl
     show op_un
@@ -245,7 +257,6 @@ label main_good_ending:
     show cg d2_water_dan_ending
     with dissolve
     $ renpy.pause(0.5, hard=True)
-
     scene op_back
     show op_sl
     show op_un
@@ -265,7 +276,6 @@ label main_good_ending:
     show cg epilogue_mi_1_ending
     with dissolve
     $ renpy.pause(0.5, hard=True)
-
     scene op_back
     show op_sl
     show op_un
@@ -277,63 +287,58 @@ label main_good_ending:
     show op_uv
     with dissolve2
     $ renpy.pause(1, hard=True)
-
     scene bg ext_road_day_ending
     with dissolve2
     $ renpy.pause(1, hard=True)
     show logo_day:
         align (0.5, 0.5)
     with dissolve2
-
     $ renpy.pause(12, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label main_bad_ending:
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["410"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     $ renpy.pause(8, hard=True)
     scene black_long
     with dissolve2
     $ renpy.pause(79, hard=True)
-
     scene bg black
     with dissolve2
-
     stop music fadeout 5
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label dv_bad_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_beach_day_ending behind credits:
         zoom 1.2
         anchor (0.1,0.0)
@@ -344,7 +349,7 @@ label dv_bad_ending:
     with dissolve2
     $ renpy.pause(8, hard=True)
     scene cg d2_2ch_beach_ending behind credits with dissolve2:
-        pos (0,-1920)
+        pos (0,-1280)
         linear 9.0 pos (0,0)
         linear 3.0 pos (0, -250)
     $ renpy.pause(8, hard=True)
@@ -390,29 +395,27 @@ label dv_bad_ending:
     $ renpy.pause(3, hard=True)
     scene cg epilogue_dv_2_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label dv_good_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_beach_day_ending behind credits:
         zoom 1.2
         anchor (0.1,0.0)
@@ -423,7 +426,7 @@ label dv_good_ending:
     with dissolve2
     $ renpy.pause(8, hard=True)
     scene cg d2_2ch_beach_ending behind credits with dissolve2:
-        pos (0,-1920)
+        pos (0,-1280)
         linear 9.0 pos (0,0)
         linear 3.0 pos (0, -250)
     $ renpy.pause(8, hard=True)
@@ -469,29 +472,27 @@ label dv_good_ending:
     $ renpy.pause(3, hard=True)
     scene cg epilogue_dv_3_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label sl_bad_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_houses_day_ending behind credits:
         zoom 1.2
         anchor (0.0,0.0)
@@ -536,29 +537,27 @@ label sl_bad_ending:
     $ renpy.pause(8, hard=True)
     scene bg semen_room_window_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label sl_good_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_houses_day_ending behind credits:
         zoom 1.2
         anchor (0.0,0.0)
@@ -605,29 +604,27 @@ label sl_good_ending:
     $ renpy.pause(4, hard=True)
     scene cg epilogue_sl_2_ending behind credits with dissolve
     $ renpy.pause(4, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label us_bad_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_playground_day_ending behind credits:
         zoom 1.2
         anchor (0.0,0.1)
@@ -671,29 +668,27 @@ label us_bad_ending:
     $ renpy.pause(8, hard=True)
     scene cg epilogue_us_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label us_good_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_playground_day_ending behind credits:
         zoom 1.2
         anchor (0.0,0.1)
@@ -735,29 +730,27 @@ label us_good_ending:
     $ renpy.pause(8, hard=True)
     scene cg epilogue_us_3_a_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label mi_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_musclub_day_ending behind credits:
         zoom 1.2
         anchor (0.0,0.0)
@@ -819,29 +812,27 @@ label mi_ending:
     $ renpy.pause(2, hard=True)
     scene cg epilogue_mi_9_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label harem_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene cg d7_pioneers_leaving_ending behind credits with dissolve2:
         zoom 1.2
         linear 12 zoom 1.0
@@ -891,7 +882,6 @@ label harem_ending:
         anchor (0.1,0.0)
         linear 12 anchor (0.0,0.0)
     $ renpy.pause(4, hard=True)
-
     scene bg ext_aidpost_day_ending behind credits with dissolve_fast
     $ renpy.pause(0.0, hard=True)
     scene bg ext_boathouse_day_ending behind credits with dissolve_fast
@@ -924,8 +914,6 @@ label harem_ending:
     $ renpy.pause(0.0, hard=True)
     scene bg int_house_of_un_day_ending behind credits with dissolve_fast
     $ renpy.pause(0.0, hard=True)
-
-
     scene bg ext_beach_day_ending behind credits:
         zoom 1.1
         linear 12 zoom 1.0
@@ -951,32 +939,29 @@ label harem_ending:
         yanchor 0.0
     with dissolve2
     $ renpy.pause(8, hard=True)
-
     scene cg final_all_2_ending behind credits with flash2
     $ renpy.pause(8, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
-
 label uv_ending:
-
     $ persistent.sprite_time = "day"
-
     scene bg black
     with dissolve2
-
     pause(1)
-
     play music music_list["opening"] fadein 3
-
-    $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
-
+    if _preferences.language == "french":
+        $ renpy.show("credits credits_text", [ending_transform_french], layer='widgetoverlay')
+    if _preferences.language == "chinese":
+        $ renpy.show("credits credits_text", [ending_transform_chinese], layer='widgetoverlay')
+    if _preferences.language == "italian":
+        $ renpy.show("credits credits_text", [ending_transform_italian], layer='widgetoverlay')
+    if _preferences.language == "spanish":
+        $ renpy.show("credits credits_text", [ending_transform_spanish], layer='widgetoverlay')
+    else:
+        $ renpy.show("credits credits_text", [ending_transform], layer='widgetoverlay')
     scene bg ext_polyana_day_ending behind credits:
         zoom 1.2
         anchor (0.0,0.0)
@@ -1030,13 +1015,9 @@ label uv_ending:
     $ renpy.pause(2, hard=True)
     scene cg epilogue_uv_uv_ending behind credits with dissolve
     $ renpy.pause(2, hard=True)
-
     scene black
     with dissolve2
-
     stop music fadeout 3
-
     $ renpy.pause(4, hard=True)
-
     return
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

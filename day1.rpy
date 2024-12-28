@@ -1,37 +1,27 @@
 init:
     $ d1_keys = False
-
 label day1:
-
     $ backdrop = "days"
-
-    $ new_chapter(1, translation["day1"][_preferences.language])
+    $ new_chapter(1, translation_new["day1"])
     $ day_time()
-
     scene bg black
-
     play music music_list["no_tresspassing"]
-
     $ renpy.pause(2)
-
     $ persistent.sprite_time = "day"
     scene bg int_bus
     with flash
-
     window show
     "В глаза ударил яркий дневной свет."
     "Сначала я не обратил на это внимания, так как ещё не до конца проснулся."
     "Ноги сами понесли меня к двери."
     me "Чёрт, похоже, проспал остановку!"
     "Но двери не было…"
-    "Я оглядел автобус и понял, что это не привычный мне потрёпанный, видавший виды ЛИаЗ, а самый настоящий Икарус!"
+    "Я оглядел автобус и понял, что это не привычный мне потрёпанный, видавший виды ЛиАЗ, а самый настоящий Икарус!"
     "Меня сковал ужас."
     th "Как?..{w} Что?..{w} Я умер?.."
     th "Меня похитили?"
     th "Нет, точно умер..."
-
     play sound sfx_punch_medium
-
     with vpunch
     "Я лихорадочно ощупал своё тело, несколько раз больно ударил ладонями по щекам, сильно приложился лбом о спинку кресла..."
     th "Ясно: либо я всё ещё жив, либо на том свете тоже чувствуешь боль."
@@ -39,11 +29,9 @@ label day1:
     th "Может быть, я спал слишком долго и меня увезли в депо?"
     th "И потом что, пересадили на другой автобус?.."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_bus
     with dissolve
-
     window show
     "Я выскочил на улицу и огляделся."
     "Везде, куда ни глянь, бушевала зелень: высокая трава на обочине дороги, деревья, цветы…"
@@ -51,41 +39,30 @@ label day1:
     "Нестерпимо болела голова.{w} Как будто готовая взорваться."
     "Постепенно я начал вспоминать."
     window hide
-
     scene anim intro_14
     with fade2
-
     play sound sfx_intro_bus_transition
-
     $ renpy.pause(3, hard=True)
     scene anim intro_15
     with fade
     $ renpy.pause(3, hard=True)
-
     play ambience ambience_day_countryside_ambience fadein 5
-
     scene anim intro_16
     with fade
     $ renpy.pause(3)
-
     window show
     "Длинная дорога, уносящаяся вдаль, леса, степи, поля, озёра, вновь леса."
     th "Кажется, я спал, но почему тогда всё помню сейчас?"
     "А потом…{w} провал..."
     "Какая-то девушка склонилась надо мной."
     "Она нежно нашёптывает что-то мне на ухо."
-
     stop ambience fadeout 3
-
     "Потом опять провал..."
     window hide
-
     $ renpy.pause(2)
-
     $ persistent.sprite_time = "day"
     scene bg ext_bus
     with fade2
-
     window show
     "И я очнулся здесь."
     th "Кто же эта странная девушка?"
@@ -95,18 +72,13 @@ label day1:
     th "Тогда надо её найти!"
     th "И лучше всего искать подальше отсюда."
     "Я дёрнулся влево, потом вправо, потом остановился в нерешительности и наконец побежал в направлении, откуда предположительно приехал автобус."
-
     stop music fadeout 3
-
     "..."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_road_day
     with dissolve2
-
     play ambience ambience_ext_road_day fadein 3
-
     window show
     "..."
     "Физические упражнения освежают мозг, мысли проясняются, становится легче оценивать окружающую действительность."
@@ -137,15 +109,13 @@ label day1:
     th "Но вряд ли я найду разгадку в полях и лесах, а это чёртово ведро с гайками – единственное, что хоть как-то связывает меня с реальным миром."
     "..."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_camp_entrance_day
     with dissolve2
-
     window show
     th "Надо осмотреть местность повнимательнее."
     if _preferences.language != None:
-        $ renpy.notify(translation["note1"][_preferences.language])
+        $ renpy.notify(translation_new["note1"])
     "Кирпичная ограда с воротами, над которыми красовалась надпись «Совёнок», по бокам – статуи пионеров, а рядом на вывеске – номер маршрута – «410»."
     me "Сегодня рейс что-то затянулся."
     "Усмехнулся я."
@@ -160,25 +130,19 @@ label day1:
     "В голове за долю секунды проносились тысячи теорий: от похищения инопланетянами до летаргического сна, от галлюцинаций до сдвига пространства и времени…"
     "Ни одна из них не была хуже другой, но остановиться на какой-то одной было попросту невозможно."
     "Тут меня осенило – попробую позвонить!"
-
     play sound sfx_cellular_phone_error
-
     "Я достал мобильник и набрал первый попавшийся номер из телефонной книги."
     window hide
-
     $ renpy.pause(3)
-
-    window show  
+    window show
     "Однако вместо палочек приёма на экране горел жирный крест."
     th "Ладно, возможно, в такой глуши связи нет."
     th "Но не попал же я сюда один!"
     th "Автобусы ведь сами по себе не ездят!"
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_bus
     with dissolve
-
     window show
     "Я обошёл его со всех сторон и убедился, что это не галлюцинация."
     "Комья грязи на днище, кое-где виднеющаяся ржавчина, выцветшая краска и потёртая резина – нет, это определённо самый обычный Икарус."
@@ -189,19 +153,15 @@ label day1:
     "Я осторожно присел на бордюр рядом с автобусом и принялся ждать."
     "..."
     window hide
-
     with fade2
-
     window show
     "Хватило меня ненадолго."
     "Кажется, волнение достигло пика, и я потихоньку начал сходить с ума."
     "Наверное, в подобной ситуации любой человек испытывал бы что-то подобное."
     "Инопланетяне и параллельные реальности покинули моё воображение, остались лишь пустота и мрак."
     window hide
-
     with flash
-
-    window show    
+    window show
     th "Неужели всё так и закончится? Моя жизнь – закончится?"
     th "Ведь я столько всего хотел сделать, столько не успел..."
     "Меня охватила уверенность, что это конец."
@@ -209,27 +169,20 @@ label day1:
     th "Это несправедливо! Неужели я хуже других?!"
     th "Господи, за что?.."
     window hide
-
     show blink with dissolve
     $ renpy.pause(3)
     hide blink
     show unblink
-
     $ renpy.pause(3)
-
     window show
     "Слёзы нестерпимо жгли глаза, я свернулся калачиком и начал кататься по траве."
-
     hide unblink
-
     me "ЗА ЧТО?! ПОЧЕМУ?! ПОЧЕМУ Я?!"
     "Но мои крики слышали лишь безмолвные статуи пионеров да сидящая на дереве птица, которая тотчас взмахнула крыльями и улетела, прокричав что-то на своём, на птичьем, словно посмеиваясь над идиотом, посмевшим нарушить её послеобеденный сон."
     "Я окончательно захлебнулся рыданиями и просто тихо лежал, изредка поскуливая."
     "..."
     window hide
-
     with fade2
-
     window show
     "Через несколько минут удалось всё-таки взять себя в руки."
     "В голове немного прояснилось, а ужас и страх смерти если не отпустили, то как будто сделали передышку."
@@ -243,11 +196,9 @@ label day1:
     th "Пока не появятся какие-нибудь факты, строить догадки не стоит."
     th "В любом случае околачиваясь здесь ничего не узнать."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_camp_entrance_day
     with dissolve
-
     window show
     "Судя по всему, этот лагерь (если это, конечно, лагерь) – единственое место, где могли быть люди, поэтому я решил пойти туда и уже почти дошёл до ворот, как..."
     "Оттуда выглянула девочка..."
@@ -269,7 +220,6 @@ label day1:
     "Приятное славянское лицо, длинные косы, похожие на две толстые охапки свежескошенного сена, и голубые глаза, в которых, казалось, можно утонуть."
     slp "Привет, ты, наверное, только что приехал?"
     window hide
-
     menu:
         "Не отвечать ей":
             window show
@@ -288,7 +238,6 @@ label day1:
             $ lp_sl += 1
             window show
             me "Ну… да…"
-
     show sl smile2 pioneer at center with dspr
     slp "Что же, добро пожаловать!"
     "Она широко улыбнулась."
@@ -311,7 +260,7 @@ label day1:
     slp "Смотри.{w} Сейчас идёшь прямо-прямо, доходишь до площади, затем налево, дальше будут домики."
     "Она показала в сторону ворот, как будто я знал, что за ними."
     if _preferences.language != None:
-        $ renpy.notify(translation["note2"][_preferences.language])
+        $ renpy.notify(translation_new["note2"])
     slp "Ну спросишь у кого-нибудь, где домик Ольги Дмитриевны!"
     me "Я… эээ…"
     slp "Всё понял?"
@@ -326,27 +275,18 @@ label day1:
     th "Они что, здесь устроили историческую реконструкцию?"
     th "Надеюсь, на этой площади я не увижу Ленина на броневике?"
     th "Хотя сейчас меня и это не удивит…"
-
     stop ambience fadeout 2
-
     "Постояв немного, я направился в лагерь."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_clubs_day
     with dissolve
-
     play ambience ambience_camp_center_day fadein 5
-
     window show
     "Буквально через 50 метров слева словно из-под земли выросло небольшое одноэтажное здание.{w} Вывеска рядом с дверью гласила «Клубы»."
-
     stop music fadeout 5
-
     "Я уже было собирался подойти поближе..."
-
     play sound sfx_open_door_clubs
-
     show un normal pioneer far at left with dissolve
     "Как вдруг открылась дверь, и оттуда вышла невысокая девочка в пионерской форме."
     "На её красивом лице, как мне показалось, муки за судьбы всего человечества смешались с прямо-таки вселенской грустью."
@@ -357,13 +297,9 @@ label day1:
     "Не самый плохой человеческий инстинкт, но всё же далеко не самый логичный."
     "Сыграй он партию в покер с дедуктивными способностями, и результат был бы известен заранее."
     "А вот как раз эти способности (или некое их жалкое подобие) подсказывали, что эту девочку бояться не стоит."
-
     play music music_list["i_want_to_play"] fadein 5
-
     show us grin sport far at right with dissolve
-
     play sound sfx_bush_leaves
-
     "Неожиданно из соседних кустов выскочил кто-то."
     "Девочка в ярко-красной футболке с надписью «СССР»."
     th "Как точно соблюдён антураж эпохи."
@@ -376,39 +312,31 @@ label day1:
     "Та же в свою очередь смутилась, потупила взгляд и ничего не ответила."
     "Я бы, наверное, так и наблюдал их занимательный {i}диалог{/i}, но «СССР» вдруг достала что-то из кармана и начала трясти этим перед лицом первой девочки."
     window hide
-
     scene cg d1_grasshopper
     with dissolve
-
     window show
     "{i}Этим{/i} оказался кузнечик."
     unp "Ииииии-иии-иииииии!"
     "Завизжала первая девочка."
     "Видимо, она не очень любила насекомых, так как моментально убежала в сторону, где, по идее, Ленин когда-то читал речь о свершившейся рабоче-крестьянской революции."
     "Ну, то есть в сторону площади…"
-
     $ persistent.sprite_time = "day"
     scene bg ext_clubs_day
     show us grin sport at left with dspr:
         linear 2.0 xalign 2.0
     with dissolve
-
     "«СССР» посмотрела на меня, хитро улыбнулась и бросилась за ней."
     hide us
     th "Неплохое начало дня."
     th "Я совершенно не знаю, где я, да ещё тут какие-то дети играют в пионеров."
-
     stop music fadeout 5
-
     th "И всё это, судя по всему, за тысячи километров от дома.{w} Или вообще в другой реальности…"
     "И ведь {i}реальности{/i}..."
     "То есть всё окружающее казалось настолько реальным (хоть и несколько приукрашенным), что я уже начал иногда забываться: а вдруг вся моя жизнь до этого – всего лишь сон..."
     th "И что теперь делать?"
     "..."
     window hide
-
     with fade2
-
     window show
     "Я ковырял носком ботинка трещины в плитах, которыми была вымощена дорожка, и бесцельно смотрел на здание «клубов»."
     th "Ещё немного и всё-таки придётся что-то решать."
@@ -418,20 +346,16 @@ label day1:
     "Видимо, мой выбрал второй вариант, потому что откуда ни возьмись появилась решимость понять, что же здесь происходит."
     "А для этого необходимо насколько возможно вести себя по-мужски, да просто по-человечески – не ронять достоинство представителя {i}моего мира{/i}."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_houses_day
     with dissolve
-
     window show
     "Я шёл по дорожке, слева и справа стояли небольшие домики – по-видимому, жилища местных пионеров."
     "В принципе, снаружи они выглядели довольно уютно."
     "Я сам, хоть и родился в Советском Союзе, никогда не был ни пионером, ни даже октябрёнком."
     "И представлял себе быт обычного пионерлагеря несколько по-другому: огромные бараки с рядами железных коек, подъём в шесть утра по сирене, одна минута на то, чтобы заправить кровать, затем построение на плацу…"
     th "Стоп!{w} Или я что-то с чем-то путаю…"
-
     play sound sfx_punch_medium
-
     with vpunch
     "Неожиданный удар по спине!"
     "Я пошатнулся, но устоял на ногах, развернулся и уже приготовился стать героем, спасая свою жизнь..."
@@ -452,11 +376,9 @@ label day1:
     "Самое интересное, что даже эта враждебная девочка показалась мне совершенно нормальной, в ней не ощущалось какой-либо смертельной опасности."
     "Разве что страх получить по носу..."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_square_day
     with dissolve
-
     window show
     "Итак, я всё-таки добрался до площади."
     "Ленина с броневиком там не оказалось, хотя после всего случившегося подобного вполне можно было ожидать."
@@ -470,32 +392,23 @@ label day1:
     th "Ах, да, я же решил казаться нормальным..."
     th "Значит, направо!"
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_path_day
     with dissolve
-
     stop music fadeout 5
-
     window show
     "Через небольшой пролесок..."
     window hide
-
     stop ambience fadeout 2
-
     $ persistent.sprite_time = "day"
     scene bg ext_boathouse_day
     with dissolve
-
     play ambience ambience_boat_station_day fadein 5
-
     window show
     "Я вышел на пристань."
     th "Наверное, не туда свернул."
     slp "Ой, так тебе не сюда!"
-
     play music music_list["take_me_beautifully"] fadein 5
-
     "Я обернулся на голос."
     show sl smile swim at center with dissolve
     "Передо мной стояла та первая девочка."
@@ -525,16 +438,12 @@ label day1:
     "Рядом со мной стояла Славя, вновь одетая в пионерскую форму."
     me "Пошли…"
     th "В этом лагере я совсем не долго, но из всех встреченных она вызывает наименьшие подозрения."
-
     stop ambience fadeout 4
-
     th "Хотя сам этот факт уже подозрителен!"
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_square_day
     with dissolve
-
     window show
     "Мы вышли на площадь."
     show dv smile pioneer2 far at left with dissolve
@@ -553,24 +462,18 @@ label day1:
     th "Лучше сначала добраться до этой таинственной Ольги Дмитриевны."
     th "Она у них главная вроде бы."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_houses_day
     with dissolve
-
     stop music fadeout 5
-
     play ambience ambience_camp_center_day fadein 5
-
     window show
     "Мы шли сквозь ряды почти одинаковых строений, некоторые из которых напоминали пузатые пивные бочонки, а иные – хозяйственные сараи."
     "Наконец Славя остановилась перед небольшим одноэтажным домиком."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_house_of_mt_day
     with dissolve
-
     window show
     "Словно картина художника: выцветшая, местами облупившаяся от старости краска сверкала на солнце, приоткрытые ставни еле заметно качались на ветру, а по краям росли огромные кусты сирени."
     "Казалось, что эта ветхая хижинка словно утопает в пурпурном бархатном шторме, а сирень, как стихия, неотвратимо уничтожает жилище вожатой."
@@ -579,31 +482,22 @@ label day1:
     "Славя вывела меня из раздумий."
     mt_voice "… и хватит издеваться над Леной…"
     window hide
-
     play sound sfx_scary_sting
     scene cg d1_rena_sunset
-
     with vpunch
     with hpunch
-
     $ renpy.pause(2)
-
     window show
     "Реной?!"
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_house_of_mt_day
     show sl normal pioneer at center
     with dissolve
-
     window show
     th "Кажется, в домике кто-то есть."
-
     play sound sfx_open_dooor_campus_1
-
     show us grin sport far behind sl at left with dissolve
-
     "И точно, через мгновение дверь распахнулась, оттуда выбежала Ульяна и пронеслась мимо, всё так же хитро улыбаясь."
     hide us with dissolve
     show un normal pioneer far behind sl at left with dissolve
@@ -615,18 +509,13 @@ label day1:
     "Она не закончила фразу, покраснела и быстрыми шагами направилась в сторону площади."
     hide un with dissolve
     "Я почему-то захотел обернуться и проводить её взглядом, но Славя сказала:"
-
     stop ambience fadeout 3
-
     sl "Пойдём."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg int_house_of_mt_day
     with dissolve
-
     play music music_list["smooth_machine"] fadein 5
-
     window show
     "Мы зашли в домик."
     "Внутри он выглядел примерно так, как я себе его и представлял: две кровати, стол, пара стульев, простенький ковёр на полу, шкаф."
@@ -701,32 +590,24 @@ label day1:
     "Я снял пальто и кинул его на кровать, за ним отправился и свитер – я остался в одной рубашке."
     th "Вот, так куда лучше!"
     "Ничего не оставалось, кроме как воспользоваться советом и пойти осматривать лагерь."
-
     stop music fadeout 5
-
     th "Заодно по дороге попытаюсь что-нибудь выяснить."
-
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_houses_day
     with dissolve
-
     play ambience ambience_camp_center_day fadein 5
-
     window show
     "Проходя через местный «жилой квартал», я увидел идущего навстречу мне пионера."
     show el normal pioneer far at center with dissolve
     "Именно пионера, а не пионерку – и в этом царстве амазонок есть мужчины."
-
     play music music_list["eat_some_trouble"] fadein 2
-
     elp "Привет, ты новенький, наверное, Семён, да?"
     me "А ты откуда…"
     show el grin pioneer at center with dissolve
     elp "Да уже все знают! Я, кстати, Электроник. Настоящий. Можешь меня так и звать."
     if _preferences.language != None:
-        $ renpy.notify(translation["note3"][_preferences.language])
+        $ renpy.notify(translation_new["note3"])
     th "Электроник. Настоящий. Маразм крепчал…"
     me "Ясно…"
     show el smile pioneer at center with dspr
@@ -739,11 +620,9 @@ label day1:
     "Я согласился, так как изучать окрестности одному куда дольше."
     me "Ладно, давай."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_square_day
     with dissolve
-
     window show
     "И мы вновь оказались на площади."
     th "Будто в этом лагере других мест нет..."
@@ -761,13 +640,10 @@ label day1:
     "Я было удивился, что всё «знакомство» ограничилось парой слов, но потом решил, что так и надо.{w} Неуёмная активность Электроника и скромность Лены – не лучшее сочетание."
     me "Пойдём."
     window hide
-
     stop music fadeout 5
-
     $ persistent.sprite_time = "day"
     scene bg ext_dining_hall_away_day
     with dissolve
-
     window show
     "Мы вышли к некоей постройке, в которой я сразу опознал столовую."
     show el normal pioneer at center with dissolve
@@ -784,15 +660,11 @@ label day1:
     show el scared pioneer at center with dspr
     el "А вот она – Алиса Двачевская. Ты с ней поосторожнее."
     "Он говорил шёпотом."
-
     stop ambience fadeout 2
-
     if _preferences.language != None:
-        $ renpy.notify(translation["note4"][_preferences.language])
+        $ renpy.notify(translation_new["note4"])
     el "Никогда не называй её ДваЧе, она этого не любит!"
-
     play music music_list["awakening_power"] fadein 2
-
     show dv angry pioneer2 far at left with dspr
     dv "Чего ты сказал? Как ты меня назвал?"
     "Кажется, она услышала."
@@ -802,36 +674,26 @@ label day1:
     "Электроник бросился бежать так, что только пятки засверкали."
     hide el with dissolve
     window hide
-
     menu:
         "Побежать за ним":
-
             stop music fadeout 3
-
             window show
             "Я решил, что не хочу ещё раз сталкиваться с этой агрессивной девочкой, Алисой, и бросился вслед за Электроником."
             window hide
-
             $ persistent.sprite_time = "day"
             scene bg ext_square_day
             with dissolve
-
             play ambience ambience_camp_center_day fadein 5
-
             window show
             "Выбежав на площадь, я потерял его из виду."
             "Но и Двачевская за мной не гналась."
             th "Впрочем, не стоит её так называть.{w} Даже про себя..."
             "Отдышавшись, я задумался о причинах своего поступка."
             th "Ну девочка... Ну агрессивная...{w} Но зачем бежать-то?"
-
             stop ambience fadeout 2
-
             "Так и не найдя никакого подходящего ответа, я сел на лавочку и уставился на памятник Генде."
         "Ничего не делать":
-
             $ lp_dv += 1
-
             show dv angry pioneer2 at left with dissolve
             window show
             "Алиса, пробегая мимо, остановилась на мгновение и бросила:"
@@ -840,29 +702,20 @@ label day1:
             "К словам добавилась вымученная, виноватая улыбка."
             th "Хотя в чём я перед ней виноват ?.."
             "Она не ответила и побежала догонять Электроника."
-
             stop music fadeout 5
-
             hide dv with dissolve
-
     "..."
     window hide
-
     with fade
-
     window show
     th "Похоже, оставшееся время до ужина мне предстоит коротать в одиночестве."
     "Я решил пойти на восток.{w} По крайней мере туда, где находится восток в моём мире."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_playground_day
     with dissolve
-
     play ambience ambience_soccer_play_background fadein 2
-
     play music music_list["went_fishing_caught_a_girl"] fadein 5
-
     window show
     "Через некоторое время я оказался около футбольного поля."
     "Там вовсю шёл матч."
@@ -886,29 +739,21 @@ label day1:
     me "Давай в другой раз!"
     "Крикнул я ей, развернулся и пошёл назад."
     hide us with dissolve
-
     stop music fadeout 5
-
     "А Ульянка вопила мне вслед то ли про {i}трусы{/i}, то ли про {i}труса{/i}..."
     window hide
-
     stop ambience fadeout 2
-
     scene bg black
     with dissolve2
-
     play ambience ambience_camp_center_evening fadein 2
-
     window show
     "..."
     "Постепенно в свои права начал вступать вечер, который нёс с собой усталость и опустошение от бесцельно прожитого дня."
     "..."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_square_day
     with dissolve2
-
     window show
     "Я вернулся на площадь, сел на лавочку и обессиленно вздохнул."
     th "Буду сидеть здесь и ждать ужина.{w} В конце концов, искать ответы лучше сытым."
@@ -918,20 +763,15 @@ label day1:
     th "Неужели великие люди тоже подвержены подобному?"
     th "И как тогда, к примеру, Спартак в древности поднимал восстание рабов?.."
     th "Остаётся только один вывод – я не великий человек, и мне в принципе всё равно в какой машине быть шестерёнкой – в социуме, матрице или непонятном пионерлагере."
-
     play sound sfx_dinner_jingle_speaker
-
     "Мою мысль оборвала музыка, заигравшая из динамика, прикреплённого к фонарю."
     th "Наверняка это сигнал к ужину!"
     "Я направился в сторону столовой – благо, теперь знал, где она."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_dining_hall_away_day
     with dissolve
-
     stop sound fadeout 2
-
     window show
     "На крыльце стояла Ольга Дмитриевна."
     show mt normal pioneer far at center with dissolve
@@ -942,15 +782,11 @@ label day1:
     th "Наверное, ничего страшного не случится, если я пойду с ней."
     "Такое решение одобрил и мой желудок."
     window hide
-
     stop ambience fadeout 3
-
     $ persistent.sprite_time = "day"
     scene bg int_dining_hall_people_day
     with dissolve
-
     play ambience ambience_dining_hall_full fadein 5
-
     window show
     "Мы вместе зашли внутрь."
     "Столовая представляла из себя…{w} столовую."
@@ -983,7 +819,7 @@ label day1:
     mt "Да, точно, как раз уже и еда стоит!"
     "Мне не оставалось ничего другого, кроме как согласиться."
     if _preferences.language != None:
-        $ renpy.notify(translation["note5"][_preferences.language])
+        $ renpy.notify(translation_new["note5"])
     "Конечно, была некая доля вероятности, что в котлетах яд кураре, пюре обильно сдобрено мышьяком, а вместо компота мне налили отличный антифриз…"
     "Но выглядело это так аппетитно, что я никак не мог устоять!"
     hide mt with dissolve
@@ -998,9 +834,7 @@ label day1:
     show us grin pioneer at center with dspr
     us "А, ну тогда ладно, ешь."
     hide us with dissolve
-
     play music music_list["i_want_to_play"]
-
     "Однако есть было особо нечего – с тарелки пропала котлета!"
     th "Это могла сделать только она."
     th "Нет, точнее, это не мог сделать никто другой, кроме Ульяны!"
@@ -1009,7 +843,6 @@ label day1:
     us "В большой семье рта не разевай!{w} Отвернулся – и нет котлеты!"
     me "Отдай, кому говорят!"
     window hide
-
     menu:
         "Попытаться отнять котлету":
             $ lp_us += 1
@@ -1017,7 +850,6 @@ label day1:
             "Я грозно посмотрел на неё и уже было вытянул вперёд руку..."
         "Не пытаться отнять котлету":
             window show
-
     us "Нету у меня её, смотри!"
     "Действительно, тарелка Ульянки была пуста – похоже, ест эта маленькая девочка так же быстро, как и котлеты ворует."
     show us laugh pioneer at center with dspr
@@ -1027,95 +859,70 @@ label day1:
     "Догонять её не было смысла – если уж они хотят меня отравить, это можно сделать куда проще."
     "Примерно через минуту Ульянка вернулась и протянула мне тарелку, на которой лежала дымящаяся котлета."
     window hide
-
     scene cg d1_food_normal
     with dissolve
-
     window show
     us "Вот тебе, голодающий Поволжья!"
     me "Спасибо…"
     "Только и смог сказать я."
-
     stop music fadeout 3
-
     "Все подозрения вмиг развеялись – так мне хотелось есть.{w} Я подцепил вилкой котлету и…"
     window hide
-
     scene cg d1_food_skolop
     with vpunch
-
     play music music_list["doomed_to_be_defeated"]
-
     window show
     th "Что это?!{w} Какой-то жук!{w} Нет, не жук!{w} Насекомое!{w} С ножками, шевелится!"
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg int_dining_hall_people_day
     with dissolve
-
     play sound sfx_broken_dish
     play sound2 sfx_dropped_chair
-
     window show
     "Тарелка полетела на пол, разбившись вдребезги, а стул, падая, больно ударил меня по ноге."
     "Я с детства недолюбливаю насекомых, но когда эти насекомые в моей тарелке – это уже перебор!"
     me "Ах ты, маленькая…"
     show us laugh2 pioneer far at center with dissolve
     "Ульянка, похоже готовая к такому развитию событий, уже стояла в дверях и смеялась так, как будто услышала свежую шутку Петросяна."
-
     stop ambience fadeout 2
-
     "Я бросился за ней."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_dining_hall_away_day
     with dissolve
-
     window show
     "Мы выбежали из столовой."
     "Нас разделяло всего несколько десятков метров, и мне казалось, что я легко догоню эту маленькую девочку."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_square_day
     with dissolve
-
     window show
     "Мы пробежали площадь…"
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_clubs_day
     with dissolve
-
     window show
     "Помещение клубов…"
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_path_day
     with dissolve
-
     window show
     "Выбежали на лесную тропинку."
     "Я начал задыхаться."
     th "Всё же, наверное, стоило бросить курить…"
-
     stop music fadeout 5
-
     play ambience ambience_forest_day fadein 3
-
     "Ульянка скрылась за очередным поворотом, и я потерял её из виду."
     th "Просто не может быть, что я не смог её догнать!"
     th "Не может, и всё тут!"
     "Я стоял и пытался отдышаться."
     "..."
     window hide
-
     with fade2
-
     window show
     "Вечерело."
     th "Кажется, я заблудился…"
@@ -1124,23 +931,16 @@ label day1:
     th "Что же, придётся наугад."
     "..."
     window hide
-
     with fade2
-
     window show
     "..."
     window hide
-
     stop ambience fadeout 2
-
     $ persistent.sprite_time = "sunset"
     scene bg ext_no_bus_sunset
     with dissolve2
-
     $ sunset_time()
-
     play ambience ambience_camp_center_evening fadein 2
-
     window show
     "Я довольно долго плутал по лесу, пару раз даже закрадывалась мысль позвать на помощь, но наконец за деревьями показалась ограда лагеря."
     th "Всё возвращается на круги своя."
@@ -1156,9 +956,7 @@ label day1:
     "И куда это – {i}сюда{/i}..."
     "Уносящиеся к горизонту поля и леса не давали никаких ответов, в них не было ничего знакомого."
     window hide
-
     with fade2
-
     window show
     "..."
     "Странный, непонятный, чужой мир.{w} Но при этом совсем не страшный."
@@ -1167,20 +965,14 @@ label day1:
     "Хотелось тишины, покоя, просто отдохнуть от всего и уже потом со свежей головой продолжить поиски ответов."
     "Но это будет потом..."
     th "А что сейчас? Имею ли я право расслабляться?"
-
     stop ambience fadeout 2
-
     "..."
     window hide
-
     $ persistent.sprite_time = "night"
     scene bg ext_no_bus_night
     with dissolve2
-
     $ night_time()
-
     play ambience ambience_camp_center_night fadein 2
-
     window show
     "Уже совсем стемнело, и при любых раскладах ночевать лучше в лагере."
     "Я уже собирался идти назад, как вдруг кто-то бесшумно вынырнул у меня из-за спины."
@@ -1196,9 +988,7 @@ label day1:
     th "Да уж, девочка-ракета прямо.{w} Только вот сопла у неё в разные стороны…"
     show sl normal pioneer at center with dspr
     sl "Ты, наверное, есть хочешь, поужинать-то не получилось…"
-
     play sound sfx_stomach_growl
-
     "Действительно, я совсем забыл о голоде, но после этих её слов мой желудок явственно напомнил о себе, предательски заурчав."
     show sl smile pioneer at center with dspr
     "Славя улыбнулась."
@@ -1212,11 +1002,9 @@ label day1:
     me "Понятно.{w} Ну пойдём."
     "От такого предложения грех было отказываться."
     window hide
-
     $ persistent.sprite_time = "night"
     scene bg ext_square_night
     with dissolve
-
     window show
     "Когда мы вышли на площадь, Славя внезапно остановилась."
     show sl normal pioneer at center with dissolve
@@ -1224,23 +1012,17 @@ label day1:
     sl "Ты иди пока к столовой, а я через минутку, хорошо?"
     me "Ладно…"
     window hide
-
     $ persistent.sprite_time = "night"
     scene bg ext_dining_hall_away_night
     with dissolve
-
     window show
     "Я никак не ожидал, что в столь поздний час там может быть кто-то, кроме меня."
-
     play sound sfx_alisa_picklock
-
     "И этот кто-то явно безуспешно пытался открыть дверь."
     window hide
-
     $ persistent.sprite_time = "night"
     scene bg ext_dining_hall_near_night
     with dissolve
-
     window show
     "Без всякой задней мысли я поднялся на крыльцо."
     show dv normal pioneer at center with dissolve
@@ -1270,15 +1052,11 @@ label day1:
     th "А первый-то за что?"
     "..."
     window hide
-
     with fade
-
     window show
     "Славя не заставила себя долго ждать."
     show sl normal pioneer at center with dissolve
-
     stop ambience fadeout 2
-
     sl "Всё в порядке?"
     me "Да, а почему ты спрашиваешь?"
     sl "Да нет, просто так."
@@ -1288,13 +1066,10 @@ label day1:
     sl "Ну что, пойдём?"
     "А вот Славя, похоже, ничего не заметила.{w} Или по крайней мере сделала вид."
     window hide
-
     $ persistent.sprite_time = "night"
     scene bg int_dining_hall_night
     with dissolve
-
     play music music_list["a_promise_from_distant_days"] fadein 5
-
     window show
     "Мы зашли в столовую."
     show sl normal pioneer at center with dissolve
@@ -1302,30 +1077,22 @@ label day1:
     hide sl with dissolve
     "Я сел на стул и принялся покорно ждать свою спасительницу."
     window hide
-
-    scene cg d1_sl_dinner
+    show cg d1_sl_dinner
     with dissolve
-
     window show
     "Ужин мой был нехитрым – несколько булочек и стакан кефира."
     th "Немудрено – голодные пионеры, наверное, съели всё подчистую."
     "Впрочем, и это куда лучше, чем большая часть моего обычного рациона."
     "Пока я ел, Славя сидела напротив и смотрела на меня."
     me "Что, у меня что-то на лице?"
-
-    scene cg d1_sl_dinner_0
-    with dspr
-
+    show cg d1_sl_dinner_0 with dspr
     sl "Нет, просто…"
     "Она улыбнулась."
     sl "И как тебе первый день в лагере?"
     me "Ну, я даже не знаю..."
     "Глупо спрашивать у человека, попавшего в одночасье в другую реальность, понравились ли ему меню в столовой, вожатая и отведённое койкоместо."
     sl "Ничего, скоро привыкнешь!"
-
-    scene cg d1_sl_dinner
-    with dspr
-
+    show cg d1_sl_dinner with dspr
     "Славя мечтательно уставилась в окно."
     th "По правде говоря, привыкать к подобному совершенно не хочется, но ведь она не знает..."
     th "Или по крайней мере хочет, чтобы я думал, что не знает."
@@ -1340,10 +1107,7 @@ label day1:
     sl "Как?"
     "Она внимательно посмотрела на меня.{w} Так, как будто от моего ответа зависело что-то серьёзное."
     me "Ну, я не знаю... мило. Да! Тут мило."
-
-    scene cg d1_sl_dinner_0
-    with dspr
-
+    show cg d1_sl_dinner_0 with dspr
     sl "Пожалуй."
     "Она вновь улыбнулась."
     sl "Очень хорошо, что ты так думаешь."
@@ -1372,16 +1136,10 @@ label day1:
     "Все они казались {b}нормальными{/b} – такими, какими и должны быть люди в моём понимании, со всеми своими недостатками, но без сверхспособностей таких вот человеков-."
     "А Славя была ещё и...{w} милой?"
     "Я украдкой посмотрел на неё, не зная что сказать."
-
-    scene cg d1_sl_dinner
-    with dspr
-
+    show cg d1_sl_dinner with dspr
     sl "Прости, хотела показать тебе лагерь, но совсем забегалась сегодня."
     me "Да я сам... Вроде ничего не пропустил."
-
-    scene cg d1_sl_dinner_0
-    with dspr
-
+    show cg d1_sl_dinner_0 with dspr
     sl "Прям-таки ничего-ничего?"
     "Она улыбалась так, что мне приходилось от смущения прятать глаза."
     me "Ну, откуда я знаю – я же здесь первый день."
@@ -1397,14 +1155,11 @@ label day1:
     me "А можно задать глупый вопрос?"
     sl "Нет."
     window hide
-
     stop music fadeout 5
-
     $ persistent.sprite_time = "night"
     scene bg int_dining_hall_night
     show sl smile pioneer at center
     with dissolve
-
     window show
     "Славя улыбнулась и встала из-за стола."
     sl "Уже поздно... Сам дорогу до Ольги Дмитриевны найдёшь?"
@@ -1418,15 +1173,12 @@ label day1:
     show sl smile pioneer at center with dspr
     sl "Ладно, я побежала тогда.{w} Спокойной ночи!"
     me "Спокойной..."
-
     hide sl with dissolve
-
     th "Странно, чего это она так внезапно..."
     "Моё внимание привлекла связка ключей, торчавшая из двери."
     "Я было собирался догнать Славю, но где она живёт?"
     "А стучаться посреди ночи во все подряд домики показалось не лучшей идеей."
     window hide
-
     menu:
         "Взять ключи":
             window show
@@ -1438,22 +1190,17 @@ label day1:
             window show
             th "Хотя, с другой стороны, зачем они мне..."
             window hide
-
     $ persistent.sprite_time = "night"
     scene bg ext_dining_hall_near_night
     with dissolve
-
     play ambience ambience_camp_center_night fadein 5
-
     window show
     "Ночь хоть и была тёмной, но совсем не тихой – отовсюду доносилось стрекотание сверчков, пение ночных птиц, шелест деревьев."
     "Внезапно очень захотелось последовать совету Слави и поскорее пойти к домику вожатой."
     window hide
-
     $ persistent.sprite_time = "night"
     scene bg ext_square_night
     with dissolve
-
     window show
     "Не знаю почему, но вид неизвестного бронзового строителя коммунизма настраивал меня на созидательный лад."
     "Я присел на лавочку и начал прокручивать в голове события минувшего дня.{w} Этим моё созидание и ограничилось."
@@ -1463,9 +1210,7 @@ label day1:
     "Рядом послышался тихий шорох."
     "Я вздрогнул и посмотрел в ту сторону."
     th "Девочка.{w} Читает книгу."
-
     play music music_list["lets_be_friends"] fadein 5
-
     show un normal pioneer far at center with dissolve
     th "Лена."
     "Я решил подойти и поговорить."
@@ -1481,7 +1226,6 @@ label day1:
     me "Так что читаешь?"
     "На обложке было написано – «Унесённые ветром»."
     window hide
-
     menu:
         "Похвалить книгу":
             $ lp_un += 1
@@ -1491,7 +1235,6 @@ label day1:
         "Ничего не говорить":
             window show
             pass
-
     th "Правда, я не читал, но ей, кажется, такая литература вполне подходит."
     "Лена, похоже, не собиралась продолжать разговор."
     me "Ну, если я тебе мешаю..."
@@ -1544,42 +1287,29 @@ label day1:
     hide un with dissolve
     "Что-то в этой девочке мне казалось странным."
     th "Вроде бы вполне типичный образ застенчивой, скромной пионерки, но…"
-    "Загадка Лены заняла своё место в массивном списке загадок этого лагеря, который я вёл у себя голове."
-
+    "Загадка Лены заняла своё место в массивном списке загадок этого лагеря, который я вёл у себя в голове."
     stop music fadeout 5
     "..."
     window hide
-
     with fade2
-
     window show
     th "Дело было вечером, делать было нечего…"
-
     stop ambience fadeout 2
-
     "Я направился к домику Ольги Дмитриевны."
     window hide
-
     $ persistent.sprite_time = "night"
     scene bg ext_house_of_mt_night
     with dissolve
-
     window show
     "В окне горел свет."
     window hide
-
     $ persistent.sprite_time = "sunset"
     scene bg int_house_of_mt_noitem_night
     with dissolve
-
     play sound sfx_open_door_2
-
     play music music_list["smooth_machine"] fadein 5
-
     show mt normal pioneer at center with dissolve
-
     window show
-
     mt "Привет, Семён!{w} Что-то ты долго!"
     me "Да…{w} Гулял, с лагерем знакомился."
     mt "Ладно.{w} Спать будешь здесь."
@@ -1623,88 +1353,66 @@ label day1:
     th "Но а какой у меня выбор?"
     "«Не хочешь – заставим» – кажется, именно этим девизом планировала руководствоваться Ольга Дмитриевна."
     window hide
-
     stop music fadeout 5
-
     scene bg black
     with fade2
-
     window show
     "Я лёг, закрыл глаза и только тогда понял, что за весь день смертельно устал."
-
     play sound_loop sfx_head_heartbeat fadein 2
-
     "В голове что-то ужасно стучало, как будто у извилин началась ночная смена."
     "Однако они, похоже, больше были настроены на выпуск сталепроката, чем на работу с тонкой электроникой."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_bus
     show prologue_dream
     with fade
-
     window show
     "Перед глазами пролетал автобус..."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_square_day
     show prologue_dream
     with fade
-
     window show
     "Площадь и памятник..."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg int_dining_hall_people_day
     show us laugh pioneer at center
     show prologue_dream
     with fade
-
     window show
     "Столовая, полная пионеров...{w} И ехидное лицо Ульянки."
     window hide
-
     $ persistent.sprite_time = "day"
     scene bg ext_boathouse_day
     show sl smile swim at center
     show prologue_dream
     with fade
-
     window show
     "Славя..."
     window hide
-
     scene bg ext_square_night
     show un night at center
     show prologue_dream
     with fade
-
     window show
     "Лена..."
     window hide
-
     scene bg ext_houses_day
     show dv angry pioneer2 at center
     show prologue_dream
     with fade
     $ persistent.sprite_time = "day"
-
     window show
     "И даже воспоминания об Алисе не вызвали каких-то очень уж отрицательных эмоций."
     window hide
-
     scene black
     with fade3
-
     stop sound_loop fadeout 3
-
     window show
     th "А что, если я здесь надолго?.."
     window hide
-
     $ renpy.pause(3)
-
     jump day2_main1
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc
